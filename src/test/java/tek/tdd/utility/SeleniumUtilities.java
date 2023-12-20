@@ -24,4 +24,16 @@ public class SeleniumUtilities extends BaseSetup {
     public boolean isElementEnabled(WebElement element) {
         return waitForVisibility(element).isEnabled();
     }
+
+    public void clickOnElement(WebElement element) {
+        getWait().until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public void sendTextToElement(WebElement element, String text) {
+        waitForVisibility(element).sendKeys(text);
+    }
+
+    public boolean isElementDisplayed(WebElement element) {
+        return waitForVisibility(element).isDisplayed();
+    }
 }
