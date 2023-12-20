@@ -13,7 +13,15 @@ public class SeleniumUtilities extends BaseSetup {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(10));
     }
 
+    public WebElement waitForVisibility(WebElement element) {
+        return getWait().until(ExpectedConditions.visibilityOf(element));
+    }
+
     public String getElementText(WebElement element) {
-      return  getWait().until(ExpectedConditions.visibilityOf(element)).getText();
+        return waitForVisibility(element).getText();
+    }
+
+    public boolean isElementEnabled(WebElement element) {
+        return waitForVisibility(element).isEnabled();
     }
 }

@@ -17,4 +17,13 @@ public class HomePageTests extends UITestsBase {
         Assert.assertEquals(homePageTitle, "TEKSCHOOL",
                 "validate top left corner title");
     }
+
+    //TestCase Navigate to retail app and make sure Sign in button is enabled.
+    @Test
+    public void validateSingInButtonEnabled() {
+        HomePage homePage = new HomePage();
+        boolean isSignInButtonEnabled = isElementEnabled(homePage.signInButton);
+        Assert.assertTrue(isSignInButtonEnabled,
+                "Sign in Button should be enabled");
+    }
 }

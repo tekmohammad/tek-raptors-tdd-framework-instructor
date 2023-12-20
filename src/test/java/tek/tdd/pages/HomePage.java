@@ -15,4 +15,7 @@ public class HomePage extends SeleniumUtilities {
 
     @FindBy(className = "top-nav__logo")
     public WebElement homePageTitle;
+
+    @FindBy(linkText = "Sign in")
+    public WebElement signInButton;
 }
