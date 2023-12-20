@@ -18,4 +18,7 @@ public class LoginPage extends SeleniumUtilities {
 
     @FindBy(id = "loginBtn")
     public WebElement loginButton;
+
+    @FindBy(className = "error")
+    public WebElement errorMessageElement;
 }
