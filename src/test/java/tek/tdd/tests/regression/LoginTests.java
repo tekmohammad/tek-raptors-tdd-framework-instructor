@@ -1,5 +1,6 @@
 package tek.tdd.tests.regression;
 
+import com.aventstack.extentreports.service.ExtentTestManager;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,13 +14,13 @@ public class LoginTests extends UITestsBase {
 
     @Test
     public void validateSuccessLogin() {
-        HomePage homePage = new HomePage();
         clickOnElement(homePage.signInButton);
-
-        LoginPage loginPage = new LoginPage();
         sendTextToElement(loginPage.emailInput, "jawid10@gmail.com");
         sendTextToElement(loginPage.passwordInput, "Tek12345$");
         clickOnElement(loginPage.loginButton);
+//Adding info to show on the report.
+        ExtentTestManager.getTest()
+                .info("After Click on Login Going back to Home Page.");
 
         boolean isAccountLinkDisplayed = isElementDisplayed(homePage.accountLinkButton);
         Assert.assertTrue(isAccountLinkDisplayed,
@@ -28,10 +29,7 @@ public class LoginTests extends UITestsBase {
 
     @Test(dataProvider = "negativeData")
     public void negativeLoginTest(String email, String password, String expectedError) {
-        HomePage homePage = new HomePage();
         clickOnElement(homePage.signInButton);
-
-        LoginPage loginPage = new LoginPage();
         sendTextToElement(loginPage.emailInput, email);
         sendTextToElement(loginPage.passwordInput, password);
         clickOnElement(loginPage.loginButton);
@@ -49,7 +47,7 @@ public class LoginTests extends UITestsBase {
                 {"jawid10@gmail.com" , "wrongPassword" , "wrong username or password"},
                 {"jawid10@gmail.com" , "wrongPassword" , "wrong username or password"},
                 {"jawid10@gmail.com" , "wrongPassword" , "wrong username or password"},
-                {"jawid10@gmail.com" , "wrongPassword" , "wrong username or password"}
+                {"jawid10@gmail.com" , "wrongPassword" , "wrong username or password123"}
         };
         return testData;
     }

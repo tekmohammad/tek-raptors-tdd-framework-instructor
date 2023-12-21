@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Retail App Automation Framework">
+    <test name="Test Runner">
+<!--        execute tests by package.-->
+        <packages>
+            <package name="tek.tdd.tests.smoke" />
+            <package name="tek.tdd.tests.regression" />
+        </packages>
+<!--        <classes>-->
+<!--            <class name="tek.tdd.tests.smoke.HomePageTests" />-->
+<!--            <class name="tek.tdd.tests.regression.LoginTests" />-->
+<!--        </classes>-->
+<!--        <classes>-->
+<!--            <class name="tek.tdd.tests.regression.LoginTests">-->
+<!--                <methods>-->
+<!--                   <include name="validateSuccessLogin" />-->
+<!--                    <exclude name="validateSuccessLogin" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+    </test>
+</suite>
